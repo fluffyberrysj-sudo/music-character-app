@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Personal Character</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <main class="card result-card">
+        <h1>{{ name }}</h1>
+        <p class="eyebrow">Here’s your character</p>
+        <div class="choice-tags">
+            <span class="tag">Gender: {{ gender.title() }}</span>
+            <span class="tag">Genre: {{ genre }}</span>
+            <span class="tag">Hobby: {{ hobby }}</span>
+        </div>
+        <img class="result-image" src="{{ url_for('static', filename=character['image']) }}"
+            alt="Pixel character image" />
+        <p class="result-description">{{ character['description'] }}</p>
+        <a class="back-link" href="/">Try again</a>
+    </main>
+</body>
+
+</html>

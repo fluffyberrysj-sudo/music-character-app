@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Your Personal Character</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <main class="card">
+        <h1>Build Your Personal Character</h1>
+        <p class="subtitle">Fill in your name and choose your vibe. The result will show a character based on your
+            gender, genre, and hobby.</p>
+
+        <form method="post" action="/">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Type your name" required />
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                {% for gender in genders %}
+                <option value="{{ gender }}">{{ gender.title() }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="genre">Music genre</label>
+            <select id="genre" name="genre" required>
+                {% for genre in genres %}
+                <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="hobby">Hobby</label>
+            <select id="hobby" name="hobby" required>
+                {% for hobby in hobbies %}
+                <option value="{{ hobby }}">{{ hobby }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Generate Character</button>
+        </form>
+    </main>
+</body>
+
+</html>
